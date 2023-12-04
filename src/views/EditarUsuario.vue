@@ -1,15 +1,21 @@
 <script setup>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
-import NavSecundaria from "../components/NavSecundaria.vue";
 </script>
 
 <template>
-  <header><Navbar></Navbar></header>
+  <Navbar></Navbar>
 
   <main>
     <div>
-      <NavSecundaria></NavSecundaria>
+      <div class="barra">
+        <ol class="breadcrumb" id="navegacion-secundaria">
+          <li class="nav-link breadcrumb-item">
+            <RouterLink to="/">Inicio</RouterLink>
+          </li>
+          <li class="nav-link breadcrumb-item">Editar Usuario</li>
+        </ol>
+      </div>
       <div class="container pb-5 pt-3">
         <div class="card text-left">
           <div class="card-header" style="background-color: #930050">
@@ -120,7 +126,7 @@ import NavSecundaria from "../components/NavSecundaria.vue";
     </div>
   </main>
 
-  <footer><Footer></Footer></footer>
+  <Footer></Footer>
 </template>
 
 <style scoped>
@@ -130,12 +136,26 @@ main {
   background-color: #640238;
   color: white;
   font-family: kufam;
-}
-main {
   padding-top: 22vh;
 }
 main h1 {
   text-align: center;
+}
+.barra {
+  margin: 0 1% 0 22%;
+  display: flex;
+}
+
+#navegacion-secundaria {
+  border-radius: 5px;
+  background-color: #3a0020;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: white;
 }
 .card {
   height: 100%;

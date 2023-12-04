@@ -2,7 +2,7 @@
   <body>
     <div class="container">
       <router-link to="/"
-        ><img src="../components/icons/Logo2__1_-removebg-preview 3 (1).png"
+        ><img src="../components/icons/Logo2__1_-removebg-preview 3 (1).png" alt="logo-abril"
       /></router-link>
       <h1 class="form-title">Iniciar sesión</h1>
       <form action="#">
@@ -12,7 +12,6 @@
             <input
               type="text"
               id="email"
-              name="email"
               placeholder="Ingrese su correo electrónico"
               required
             />
@@ -22,7 +21,6 @@
             <input
               type="password"
               id="contrasena"
-              name="contrasena"
               placeholder="Ingrese su contraseña"
               required
             />

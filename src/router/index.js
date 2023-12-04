@@ -7,6 +7,10 @@ import EditarUsuario from '../views/EditarUsuario.vue';
 import CrearNuevoProducto from '../views/CrearNuevoProducto.vue';
 import EditarProducto from '../views/EditarProducto.vue';
 import Carrito from '../views/Carrito.vue';
+import PedidosUsuario from '../views/PedidosUsuario.vue';
+import DetalleProducto from '../views/DetalleProducto.vue';
+import Administrador from '../views/Administrador.vue';
+import DetallePedido from '../views/DetallePedido.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,13 +49,33 @@ const router = createRouter({
       path: '/editar-producto',
       name: 'editar-producto',
       component: EditarProducto
-    }
-    ,
+    },
     {
       path: '/carrito',
       name: 'carrito',
       component: Carrito
+    },
+    {
+      path: '/pedidos-usuario',
+      name: 'pedidos-usuario',
+      component: PedidosUsuario
+    },
+    {
+      path: '/detalle-producto',
+      name: 'detalle-producto',
+      component: DetalleProducto
+    },
+    {
+      path: '/administrador',
+      name: 'administrador',
+      component: Administrador
+    },
+    {
+      path: '/detalle-pedido',
+      name: 'detalle-pedido',
+      component: DetallePedido
     }
+    
   ]
 })
 

@@ -1,15 +1,21 @@
 <script setup>
 import Navbar from "../components/Navbar.vue";
-import NavSecundaria from "../components/NavSecundaria.vue";
 import Footer from "../components/Footer.vue";
 </script>
 
 <template>
-  <header><Navbar></Navbar></header>
+  <Navbar></Navbar>
 
   <main>
     <div>
-      <NavSecundaria></NavSecundaria>
+      <div class="barra">
+        <ol class="breadcrumb" id="navegacion-secundaria">
+          <li class="nav-link breadcrumb-item">
+            <RouterLink to="/">Inicio</RouterLink>
+          </li>
+          <li class="nav-link breadcrumb-item">Carrito</li>
+        </ol>
+      </div>
       <div class="container-carrito">
         <div class="card">
           <h4 class="card-title">Carrito de compras</h4>
@@ -21,7 +27,9 @@ import Footer from "../components/Footer.vue";
             </h5>
             <div class="cantidada col-4">
               <div class="boton-menos">
-                <button><img src="../components/icons/Minus.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Minus.png" alt="" />
+                </button>
               </div>
               <div class="input-value">
                 <input
@@ -32,13 +40,17 @@ import Footer from "../components/Footer.vue";
                 />
               </div>
               <div class="boton-mas">
-                <button><img src="../components/icons/Plus.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Plus.png" alt="" />
+                </button>
               </div>
               <div class="precio">
                 <h5>$16.000</h5>
               </div>
               <div class="button-trash">
-                <button><img src="../components/icons/Trash.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Trash.png" alt="" />
+                </button>
               </div>
             </div>
             <div class="col-3 titulo-detalle-carrito">
@@ -46,7 +58,7 @@ import Footer from "../components/Footer.vue";
             </div>
           </div>
           <div class="col-8">
-            <hr size="20px" color="black" />
+            <hr />
           </div>
           <div class="card-body col-12">
             <img src="../components/icons/crema 1.png" alt="" />
@@ -56,7 +68,9 @@ import Footer from "../components/Footer.vue";
             </h5>
             <div class="cantidad col-4">
               <div class="boton-menos">
-                <button><img src="../components/icons/Minus.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Minus.png" alt="" />
+                </button>
               </div>
               <div class="input-value">
                 <input
@@ -67,13 +81,17 @@ import Footer from "../components/Footer.vue";
                 />
               </div>
               <div class="boton-mas">
-                <button><img src="../components/icons/Plus.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Plus.png" alt="" />
+                </button>
               </div>
               <div class="precio">
                 <h5>$14.000</h5>
               </div>
               <div class="button-trash">
-                <button><img src="../components/icons/Trash.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Trash.png" alt="" />
+                </button>
               </div>
             </div>
             <div class="col-4 lista-detalle-carrito">
@@ -85,7 +103,7 @@ import Footer from "../components/Footer.vue";
             </div>
           </div>
           <div class="col-8">
-            <hr size="20px" color="black" />
+            <hr />
           </div>
           <div class="card-body col-12">
             <img src="../components/icons/crema 1.png" alt="" />
@@ -95,7 +113,9 @@ import Footer from "../components/Footer.vue";
             </h5>
             <div class="cantidad col-4">
               <div class="boton-menos">
-                <button><img src="../components/icons/Minus.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Minus.png" alt="" />
+                </button>
               </div>
               <div class="input-value">
                 <input
@@ -106,13 +126,17 @@ import Footer from "../components/Footer.vue";
                 />
               </div>
               <div class="boton-mas">
-                <button><img src="../components/icons/Plus.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Plus.png" alt="" />
+                </button>
               </div>
               <div class="precio">
                 <h5>$10.000</h5>
               </div>
               <div class="button-trash">
-                <button><img src="../components/icons/Trash.png" alt="" /></button>
+                <button>
+                  <img src="../components/icons/Trash.png" alt="" />
+                </button>
               </div>
             </div>
             <div class="col-4 total-realizar-pedido">
@@ -123,14 +147,14 @@ import Footer from "../components/Footer.vue";
             </div>
           </div>
           <div class="col-8">
-            <hr size="20px" color="black" />
+            <hr />
           </div>
         </div>
       </div>
     </div>
   </main>
 
-  <footer><Footer></Footer></footer>
+  <Footer></Footer>
 </template>
 <style scoped>
 @import url("https://fonts.cdnfonts.com/css/kufam-2");
@@ -139,12 +163,26 @@ main {
   background-color: #640238;
   color: white;
   font-family: kufam;
-}
-main {
   padding-top: 22vh;
 }
 main h1 {
   text-align: center;
+}
+.barra {
+  margin: 0 1% 0 22%;
+  display: flex;
+}
+
+#navegacion-secundaria {
+  border-radius: 5px;
+  background-color: #3a0020;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: white;
 }
 .container-carrito {
   background-color: #640238;

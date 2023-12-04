@@ -1,8 +1,64 @@
+<script>
+import { validarRut } from "../utils/validarRut.js";
+export default {
+  name: "Registro",
+  data() {
+    return {
+      nombre: "",
+      apellido: "",
+      email: "",
+      telefono: "",
+      rut: "",
+      rutValido: true,
+      password: "",
+      confirmPassword: "",
+      direccion: "",
+    };
+  },
+  computed: {
+    emailRules() {
+      return [(v) => !!v || "El email es requerido"];
+    },
+    telefonoRules() {
+      return [(v) => !!v || "El telefono es requerido"];
+    },
+    rutRules() {
+      return [
+        (v) => !!v || "El RUT es requerido",
+        (v) => this.rutValido || "RUT inválido",
+      ];
+    },
+    passwordRules() {
+      return [(v) => !!v || "La contraseña es requerida"];
+    },
+    confirmPasswordRules() {
+      return [(v) => !!v || "La contraseña es requerida"];
+    },
+    direccionRules() {
+      return [(v) => !!v || "La dirección es requerida"];
+    },
+  },
+  methods: {
+    registro() {
+      const rutLimpio = this.rut.replace(/[.-]/g, "");
+      this.rutValido = validarRut(rutLimpio);
+      if (this.rutValido) {
+        console.log(rutLimpio);
+
+      } else {
+        console.log("Rut no válido");
+        return "Rut invalido";
+      }
+    },
+  },
+};
+</script>
+
 <template>
   <body>
     <div class="container">
-        <router-link to="/"
-        ><img src="../components/icons/Logo2__1_-removebg-preview 3 (1).png"
+      <router-link to="/"
+        ><img src="../components/icons/Logo2__1_-removebg-preview 3 (1).png" alt="logo-abril"
       /></router-link>
       <h1 class="form-title">Crea tu cuenta</h1>
       <form action="#">
@@ -12,8 +68,10 @@
             <input
               type="text"
               id="nombre"
-              name="nombre"
+              v-model="nombre"
+              title="Solo letras permitidas"
               placeholder="Ingrese su nombre"
+              pattern="[A-Za-z]+"
               required
             />
           </div>
@@ -22,18 +80,22 @@
             <input
               type="text"
               id="apellido"
-              name="apellido"
+              v-model="apellido"
+              title="Solo letras permitidas"
               placeholder="Ingrese su apellido"
+              pattern="[A-Za-z]+"
               required
             />
           </div>
           <div class="email-input-box">
-            <label for="correo">Correo electrónico</label>
+            <label for="email">Correo electrónico</label>
             <input
-              type="text"
+              type="email"
               id="email"
-              name="email"
-              placeholder="Ingrese su correo electrónico"
+              v-model="email"
+              title="Ingrese una dirección de correo electrónico válida"
+              placeholder="correo@ejemplo.com"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?"
               required
             />
           </div>
@@ -42,8 +104,10 @@
             <input
               type="tel"
               id="telefono"
-              name="telefono"
-              placeholder="Ingrese su número"
+              v-model="telefono"
+              title="Ingrese un número de teléfono válido (entre 8 y 15 dígitos)"
+              placeholder="912345678"
+              pattern="[0-9]{8,15}"
               required
             />
           </div>
@@ -52,27 +116,27 @@
             <input
               type="text"
               id="rut"
-              name="rut"
+              v-model="rut"
               placeholder="Ingrese su RUT"
               required
             />
           </div>
           <div class="contra-input-box">
-            <label for="contrasena">Contraseña</label>
+            <label for="password">Contraseña</label>
             <input
               type="password"
-              id="contrasena"
-              name="contrasena"
+              id="password"
+              v-model="password"
               placeholder="Ingrese su contraseña"
               required
             />
           </div>
           <div class="contra-input-box">
-            <label for="confirmar_contrasena">Confirmar contraseña</label>
+            <label for="confirmPassword">Confirmar contraseña</label>
             <input
               type="password"
-              id="contrasena"
-              name="contrasena"
+              id="confirmPassword"
+              v-model="confirmPassword"
               placeholder="Ingrese su contraseña nuevamente"
               required
             />
@@ -82,7 +146,7 @@
             <input
               type="text"
               id="direccion"
-              name="direccion"
+              v-model="direccion"
               placeholder="Ingrese su dirección"
               required
             />
@@ -109,7 +173,7 @@
 }
 
 body {
-  background-color: #3A0020;
+  background-color: #3a0020;
   padding-top: 2vh;
   padding-bottom: 2vh;
 }
@@ -131,7 +195,7 @@ body {
 }
 
 .main-user-info {
-    padding-left: 2%;
+  padding-left: 2%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

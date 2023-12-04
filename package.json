@@ -1,5 +1,5 @@
 {
-  "name": "taller-3-benjamin-serrano",
+  "name": "abril",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -8,9 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.5.0",
+    "axios-mock-adapter": "^1.22.0",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4",
-    "axios": "^1.5.0"
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
